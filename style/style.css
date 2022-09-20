@@ -1,0 +1,427 @@
+body{
+    background-color: #F7F7F7;
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 0;
+}
+.wrap-site{
+    background: #fff;
+    min-width: 320px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+.site-header{
+    background-color: #203a63;
+    height: 0;
+}
+.site-header .navbar{
+    background-color: #203a63;
+    -webkit-box-shadow: 0 2px 5px #787878;
+    -moz-box-shadow: 0 2px 5px #787878;
+    box-shadow: 0 1px 20px #787878;
+    -webkit-border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+}
+.site-header .navbar-brand{
+    height: auto;
+    padding: 0 0 15px 0;
+}
+.site-header .navbar-brand img{
+    padding-top: 15px;
+    max-width: 370px;
+    max-height: 107px;
+    width: 100%;
+    height: auto;
+}
+.site-header .navbar-default{
+    border: none;
+
+}
+.site-header .navbar-collapse{
+    text-align: center;
+}
+.site-header .navbar-toggle{
+    margin-top: 19px;
+    margin-right: 20px;
+}
+.site-header .nav{
+    float: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    text-align: center; 
+}
+.site-header .nav li a{
+    font-family: 'Minion Pro';
+    background-color: #203a63;
+    color: #E5E5E5;
+    display: inline-block;
+    font-size: 19pt;
+    text-shadow: 2px 8px 6px black,
+                 0px -5px 35px black;
+    margin:24px 0 0 0;
+    padding: 15px 20px;
+    -webkit-transition: all 0.35s;
+    -o-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
+}
+.site-header .nav li a:active,
+.site-header .nav li a:focus,
+.site-header .nav li a:hover{
+    color: #eee;
+}
+.site-header .nav li a:hover {
+    background-color: #294B7F;
+    margin-top: 0px;
+    padding: 39px 20px 20px 20px;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+}
+.site-header .nav li a:active
+{
+    color: #F2F2F2;
+    background-color: #437ACF;
+    margin-top: 20px;
+    padding: 19px 20px 20px 20px;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    -webkit-transition: all 0.1s;
+    -o-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+    text-shadow: 2px 8px 6px black, 0px -5px 35px black;
+}
+
+/*Выдвижная панель*/
+* {
+    box-sizing: border-box;
+}
+
+.nav1 {
+    width: 310px;
+    min-width: 310px;
+    height: 390px;
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    margin: 0;
+    right: -320px;                   /* сдвигаем (прячем) панель относительно правого края страницы */
+    padding: 15px 20px;              /* внутренние отступы */
+    -webkit-transition: right 0.3s;  /* плавный переход смещения панели */
+    -moz-transition: right 0.3s;
+    transition: right 0.3s;
+    background: #16a085;
+    z-index: 2000;
+    border-radius: 0 0 0 10px;
+}
+
+/*
+ * Кнопка переключения панели
+ * тег <label>
+ */
+.nav-toggle1 {
+    position: absolute;
+    right: 320px;
+    top: 300px;
+    padding: 0.5em;
+    background: inherit;
+    color: #dadada;
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 1;
+    z-index: 2001;
+    -webkit-transition: color .25s ease-in-out;
+    -moz-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+}
+
+/* определяем текст кнопки */
+.nav-toggle1:after {
+    content: 'Оставить заявку';
+    text-decoration: none;
+    -webkit-transition: top 1s ease-out 0.5s;
+     -moz-transition: top 1s ease-out 0.5s;
+     -o-transition: top 1s ease-out 0.5s;
+     transition: top 1s ease-out 0.5s;
+}
+
+/* цвет текста при наведении */
+.nav-toggle1:hover {
+    color: #f4f4f4;
+}
+
+/*
+ * Скрытый чекбокс (флажок)
+ * невидим и недоступен :)
+ * имя селектора атрибут флажка
+ */
+[id='nav-toggle1'] {
+    position: absolute;
+    display: none;
+}
+
+/*
+ * изменение положения переключателя 
+ * при просмотре на мобильных устройствах
+ * когда навигация раскрыта, распологаем внутри панели
+*/
+[id='nav-toggle1']:checked ~ .nav1 > .nav-toggle1 {
+    left: auto;
+    right: 19px;
+    top: 19px;
+}
+
+/*
+ * Когда флажок установлен, открывается панель
+ * используем псевдокласс:checked
+ */
+[id='nav-toggle1']:checked ~ .nav1{
+    right: 0;
+    box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -moz-box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -webkit-box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    overflow-y: auto;
+}
+
+/* 
+ * смещение контента страницы
+ * на размер ширины панели,
+ * фишка необязательная, на любителя
+*/
+[id='nav-toggle1']:checked ~ main > article {
+    -webkit-transform: translateX(-320px);
+    -moz-transform: translateX(-320px);
+    transform: translateX(-320px);
+}
+
+/*
+ * изменение символа переключателя,
+ * привычный крестик (MULTIPLICATION X), 
+ * вы можете испльзовать любой другой значок
+*/
+[id='nav-toggle1']:checked ~ .nav1 > .nav-toggle1:after {
+    content: '\2715';
+}
+
+/**
+ * профиксим баг в Android <= 4.1.2
+ */
+body {
+    -webkit-animation: bugfix infinite 1s;
+}
+
+@-webkit-keyframes bugfix {
+    to {
+      padding: 0;
+    }
+}
+
+/*
+ * позаботьтимся о средних и маленьких экранах
+ * мобильных устройств
+ */
+@media screen and (min-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .nav1 {
+      width: 100%;
+      box-shadow: none
+    }
+}
+
+/*
+ * Формируем стиль заголовка (логотип) панели 
+*/
+.nav1 h2 {
+    width: 90%;
+    padding: 0;
+    margin: 10px 0;
+    text-align: center;
+    text-shadow: rgba(255, 255, 255, .1) -1px -1px 1px, rgba(0, 0, 0, .5) 1px 1px 1px;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    opacity: 0;
+    transform: scale(0.1, 0.1);
+    -ms-transform: scale(0.1, 0.1);
+    -moz-transform: scale(0.1, 0.1);
+    -webkit-transform: scale(0.1, 0.1);
+    transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    -moz-transform-origin: 0% 0%;
+    -webkit-transform-origin: 0% 0%;
+    transition: opacity 0.8s, transform 0.8s;
+    -ms-transition: opacity 0.8s, -ms-transform 0.8s;
+    -moz-transition: opacity 0.8s, -moz-transform 0.8s;
+    -webkit-transition: opacity 0.8s, -webkit-transform 0.8s;
+}
+
+.nav1 h2 a {
+    color: #dadada;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/*плавное появление заголовка (логотипа) при раскрытии панели */
+[id='nav-toggle1']:checked ~ .nav1 h2 {
+    opacity: 1;
+    transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+}
+
+button {
+    background: -moz-linear-gradient(#00BBD6, #EBFFFF);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+    padding: 3px 7px;
+    color: #333;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #666;
+}
+
+.frame{
+    width: 100%;
+    height: 800px;
+    border: none;
+}
+@media (max-width: 1230px){
+    body{
+        background-color: #F7F7F7;
+    }
+    .container{
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .site-header .navbar-brand img{
+        
+        margin-left: 10px;
+}
+}
+@media (max-width: 1204px){
+    body{
+        background-color: #F7F7F7;
+    }
+    .container{
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .container .collapse{
+        margin-right: -20px;
+}
+}
+@media (max-width: 1194px){
+    body{
+        background-color: #F7F7F7;
+    }
+    .container{
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .container .navbar-collapse{
+        margin-right: none;
+    }
+}
+@media (max-width: 1194px){
+    body{
+        background-color: #F7F7F7;
+    }
+    .container{
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .container .navbar-collapse{
+        margin-right: none;
+    }
+}
+@media (max-width: 1177px){
+    body{
+        background-color: #F7F7F7;
+    }
+    .container{
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .container .navbar-header{
+        margin-right: -10px;
+    }
+
+}
+@media (max-width: 1187px){
+    body{
+        background-color: #F7F7F7;
+    }
+    .container{
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .container .collapse{
+        margin-right: -10px;
+}
+.site-header .nav li a{
+    margin:24px 0 0 0;
+    padding: 15px 15px;
+}
+}
+@media (max-width: 1170px){
+    body{
+        background-color: #F7F7F7;
+    }
+    .site-header .nav li a{
+    margin:0 0 0 0;
+    padding: 20px 0 0 0;
+}
+.site-header .nav li a:hover {
+    margin-top: 0px;
+    padding: 19px 20px 20px 20px;
+}
+.site-header .nav li a:active
+{
+    margin-top: 20px;
+    padding: 19px 20px 20px 20px;
+}
+.site-header .nav li a:active,
+.site-header .nav li a:focus,
+.site-header .nav li a:hover{
+    color: #eee;
+}
+}
+@media (max-width: 1072px){
+    body{
+        background-color: #F7F7F7;
+    }
+    .site-header .collapse{
+        
+    }
+}
+@media (max-width: 1063px){
+    body{
+        background-color: #F7F7F7;
+    }
+    .site-header .collapse{
+        
+    }
+}
